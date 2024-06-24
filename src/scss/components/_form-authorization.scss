@@ -26,4 +26,84 @@
             font-size: $title-mobile;
         }
     }
+
+    &__field {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        font-size: $text-large;
+        &-label {
+            color: $label-color;
+            text-align: start;
+        }
+        &-input {
+            color: $input-color;
+            font-size: $text-large;
+            width: 100%;
+            height: 50px;
+            border: 1.5px solid $border-color;
+            padding: 0 10px;
+            border-radius: 15px;
+            @include respond-to('middle') {
+                font-size: $text-middle;
+                height: 40px;
+            }
+            @include respond-to('mobile') {
+                font-size: $text-mobile;
+                height: 35px;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 4px 1px $label-color;
+                border: 1.5px solid $label-color;
+            }
+            &::placeholder {
+                color: $border-color;
+            }
+            
+        }
+        @include respond-to('middle') {
+            font-size: $text-middle;
+        }
+        @include respond-to('mobile') {
+            font-size: $text-mobile;
+        }
+
+        &.invalid {
+            .form__field-label {
+                color: $invalid-color;
+            }
+            .form__field-input {
+                color: $invalid-color;
+                border: 1.5px solid $invalid-color;
+                box-shadow: 0 0 4px 1px $invalid-color;
+            }
+        }
+        
+    }
+
+    &__btn {
+        background-color: $label-color;
+        margin: 0 auto;
+        color: $bg-color-white;
+    }
+    &__notice {
+        color: $border-color;
+        font-size: $text-large;
+        margin-top: 15px;
+        @include respond-to('middle') {
+            font-size: $text-middle;
+        }
+        @include respond-to('mobile') {
+            font-size: $text-mobile;
+        }
+    }
+    &__link {
+        color: $secondary-btn-color;
+        font-size: inherit;
+        text-decoration: none;
+        &:hover {
+            color: $invalid-color;
+        }
+    }
 }
