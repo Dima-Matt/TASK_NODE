@@ -1,4 +1,6 @@
 import { Component } from "../core/component.js";
+import { Form } from "../core/form.js";
+import { Validator } from "../core/validator.js";
 
 export class SignInComponent extends Component {
     constructor(formId) {
@@ -6,24 +8,17 @@ export class SignInComponent extends Component {
     }
 
     init() {
-        this.component.addEventListener('submit', onSubmitHandler);
+        this.component.addEventListener('submit', onSubmitHandler.bind(this));
+        this.form = new Form(this.component, {
+            name: [Validator.required],
+            password: [Validator.required],
+        });
     }
 }
 
-function required(str) {
-    return str && str.trim();
-}
 
 function onSubmitHandler(event) {
-    event.preventDefault();
-
-
-   if (!required(this.name.value)) {
-        console.log('errrrrrrrrr');
-   }
-
-   if (!required(this.password.value)) {
-    console.log('error');
-   }
-    
+    event.preventDefault(); 
+    console.log(this.form.value());
+    console.log(this.form.isValid());
 }

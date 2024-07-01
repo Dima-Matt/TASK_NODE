@@ -1,13 +1,11 @@
 import { PageAuthorization } from './components/page-authorization.component.js';
-import {  } from "./components/sign-in.components.js";
+import { Validator } from './core/validator.js';
 
 
 
 
 const component1 = new PageAuthorization('login');
 
-
-console.log(component1);
 
 // class CreateComponent extends Component {
     

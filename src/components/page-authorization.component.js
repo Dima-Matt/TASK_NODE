@@ -4,9 +4,6 @@ import { SignInComponent } from "./sign-in.components.js";
 export class PageAuthorization extends Component {
     constructor(id) {
         super(id)
-    
-
-        console.log(this.links);
     }
 
     init() {
